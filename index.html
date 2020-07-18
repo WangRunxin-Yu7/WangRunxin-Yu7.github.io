@@ -84,14 +84,14 @@
 			
 				<li><a href="/" >主页</a></li>
 			
-				<li><a href="https://zhousiwei.gitee.io/ibooks/" target="_blank" rel="noopener" >技术支持</a></li>
+				<li><a href="/tags/%E6%97%A5%E5%B8%B8/" >日常</a></li>
 			
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
 			
 				
-					<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+					<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">茶屋の文</a>
 				
 			
 				
@@ -174,7 +174,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="https://zhousiwei.gitee.io/ibooks/" target="_blank" rel="noopener">技术支持</a></li>
+					<li style="width: 50%"><a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a></li>
 		        
 				</ul>
 			</nav>
@@ -233,12 +233,28 @@
   </div>
   <div class="article-info article-info-index">
     
+    <div class="article-pop-out tagcloud">
+      <i class="icon-tuding"></i>
+      <a class="article-tag-list-link color3">置顶</a>
+    </div>
     
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/17/hello-world/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/07/17/hello-world/">more >></a>
     </p>
     
 
@@ -305,7 +321,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: true
+		showTags: false
 	}
 </script>
 
@@ -352,7 +368,7 @@
     
     
       
-      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">茶屋の文</a></li>
       
         
       
@@ -375,6 +391,10 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
