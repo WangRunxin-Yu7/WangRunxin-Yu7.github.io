@@ -6,23 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wangrunxin-yu7.github.io">
-  <title>Tag: FF14 | 羽七の茶屋</title>
+  <title>表现和逻辑分离，ECS，以及行为树 | 羽七の茶屋</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="欢迎来到羽七の茶屋">
-<meta property="og:type" content="website">
-<meta property="og:title" content="羽七の茶屋">
-<meta property="og:url" content="http://wangrunxin-yu7.github.io/tags/FF14/index.html">
+  <meta name="description" content="今天上课讲的两大块内容，分别是表现和逻辑分离，ECS，以及行为树。感觉是值得思考但又较难理解的东西，暂时先将其记下来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="表现和逻辑分离，ECS，以及行为树">
+<meta property="og:url" content="http://wangrunxin-yu7.github.io/2020/07/22/%E8%A1%A8%E7%8E%B0%E5%92%8C%E9%80%BB%E8%BE%91%E5%88%86%E7%A6%BB%EF%BC%8C%E4%BB%A5%E5%8F%8AECS/index.html">
 <meta property="og:site_name" content="羽七の茶屋">
-<meta property="og:description" content="欢迎来到羽七の茶屋">
+<meta property="og:description" content="今天上课讲的两大块内容，分别是表现和逻辑分离，ECS，以及行为树。感觉是值得思考但又较难理解的东西，暂时先将其记下来。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-22T15:18:04.000Z">
+<meta property="article:modified_time" content="2020-07-23T00:42:46.323Z">
 <meta property="article:author" content="羽七">
-<meta property="article:tag" content="羽七">
-<meta property="article:tag" content="羽七の茶屋">
-<meta property="article:tag" content="家猫">
-<meta property="article:tag" content="茶屋">
 <meta property="article:tag" content="日常">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="羽七の茶屋" type="application/atom+xml">
@@ -186,41 +185,110 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-表现和逻辑分离，以及ECS" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/18/%E3%80%90FF14%E3%80%91%E8%AF%97%E4%BA%BA%E8%8A%99-%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BB%80%E4%B9%88%E4%BB%80%E4%B9%88%E6%AD%8C%E5%94%B1%E5%A4%A7%E4%BC%9A%EF%BC%9F%EF%BC%9F/" class="archive-article-date">
-        <time datetime="2020-07-18T14:48:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/18/%E3%80%90FF14%E3%80%91%E8%AF%97%E4%BA%BA%E8%8A%99-%E7%AC%AC%E4%B8%80%E5%B1%8A%E4%BB%80%E4%B9%88%E4%BB%80%E4%B9%88%E6%AD%8C%E5%94%B1%E5%A4%A7%E4%BC%9A%EF%BC%9F%EF%BC%9F/">【FF14】诗人芙 - 第一届什么什么歌唱大会？？</a>
-	
+    <h1 class="article-title" itemprop="name">
+      表现和逻辑分离，ECS，以及行为树
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+<a href="/2020/07/22/%E8%A1%A8%E7%8E%B0%E5%92%8C%E9%80%BB%E8%BE%91%E5%88%86%E7%A6%BB%EF%BC%8C%E4%BB%A5%E5%8F%8AECS/" class="archive-article-date">
+        <time datetime="2020-07-22T15:18:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">873字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>今天上课讲的两大块内容，分别是表现和逻辑分离，ECS，以及行为树。感觉是值得思考但又较难理解的东西，暂时先将其记下来。</p>
+<a id="more"></a>
+
+<h1 id="表现和逻辑分离"><a href="#表现和逻辑分离" class="headerlink" title="表现和逻辑分离"></a>表现和逻辑分离</h1><p>老师上课举了个例子：</p>
+<p>​    由于网络延迟的原因，角色在玩家显示器上所呈现出的位置可能和在服务器里的位置可能出现偏差。这里将玩家显示器上的角色位置称为表现位置，服务里所存储的角色位置称为逻辑位置。以前解决这种问题的方法是让表现位置强制移动至逻辑位置，这么做时如果网络波动较大，就会出现角色瞬移的现象，所以就出现了表现和逻辑分离的思想。在遇到相同问题时，角色会以自己的方式又表现位置自主地移动至逻辑位置，这样玩家就不会丢失太多视觉上地体验。</p>
+<p>据老师称，这样地思想同样适用于单机游戏。然而连听都一知半解，就更别说实际实现了…到底是以怎么样一种方式在进行呢？</p>
+<h1 id="ECS的设计方式"><a href="#ECS的设计方式" class="headerlink" title="ECS的设计方式"></a>ECS的设计方式</h1><ul>
+<li><p>E，即Entity，指实体，只存储数据结构。</p>
+</li>
+<li><p>C，即Component，指控件，只定义数据结构。</p>
+</li>
+<li><p>S，即System，指系统，只修改数据结构。</p>
+</li>
+</ul>
+<p>这个思想其实挺有趣的，但我目前也是一知半解，这里写一下我的理解：</p>
+<p>​    区别于面向对象的设计方式。以植物大战僵尸为例，面向对象的设计中可能会定义一个僵尸类、一个植物类等作为基类，基类中分别有各自的HP、移动速度等等，然后到具体的子类或接口实现不同僵尸和植物的功能。而ECS中，可能有一个用于存储Hp、移动速度、皮肤等数据的Character实体；然后有一个开放的GetHurt控件向外提供接口，用于修改Character里的数据；最后有个叫Hurt的系统，用于调用别人的GutHurt控件，修改别人的数据。</p>
+<p>​    那么如何区别各个僵尸或植物呢，其实就是每个植物或僵尸的实体不同或实体数据不同、所拥有的空间、所拥有的系统不同、所拥有的行为树不同。例如豌豆射手，它可能拥有Character实体，里面包括豌豆射手的模型、豌豆子弹的模型、100的HP数量等数据；还拥有GetHurt控件，和自己独特的行为树。而豌豆子弹，可能拥有Bullet实体，里面包含了子弹的模型和飞行速度却没有Hp；有飞行控件、Hurt系统以及自己的行为树。而向日葵一样拥有Character实体、GetHurt控件、产生阳光的系统以及自己的行为树。</p>
+<p>仔细想想，这样的设计方式确实很新颖，也有其独道的优越性。</p>
+<p>下面给自己定个代码命名规则（可能会因为生活经验再次修改）：</p>
+<ul>
+<li>实体脚本以名词命名</li>
+<li>控件脚本尽量以被动语态命名</li>
+<li>系统脚本以动词命名</li>
+</ul>
+<h1 id="行为树"><a href="#行为树" class="headerlink" title="行为树"></a>行为树</h1><p>说白了就是每个实例的行为流程图。根据流程图的设计，可以确定所需要调用的实体、控件、系统，并表现到代码当中。</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          羽七
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://wangrunxin-yu7.github.io/2020/07/22/表现和逻辑分离，以及ECS/" title="表现和逻辑分离，ECS，以及行为树" target="_blank">http://wangrunxin-yu7.github.io/2020/07/22/表现和逻辑分离，以及ECS/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          家猫有限公司
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -230,25 +298,61 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FF14</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/19/A%E5%8F%94%E3%80%81%E7%B4%AB%E7%BD%97%E5%85%B0%E3%80%81%E4%BA%AC%E9%98%BF%E5%B0%BC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">A叔、紫罗兰、京阿尼</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -277,9 +381,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
