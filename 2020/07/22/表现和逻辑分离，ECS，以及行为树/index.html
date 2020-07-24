@@ -13,12 +13,12 @@
   <meta name="description" content="今天上课讲的两大块内容，分别是表现和逻辑分离，ECS，以及行为树。感觉是值得思考但又较难理解的东西，暂时先将其记下来。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="表现和逻辑分离，ECS，以及行为树">
-<meta property="og:url" content="http://wangrunxin-yu7.github.io/2020/07/22/%E8%A1%A8%E7%8E%B0%E5%92%8C%E9%80%BB%E8%BE%91%E5%88%86%E7%A6%BB%EF%BC%8C%E4%BB%A5%E5%8F%8AECS/index.html">
+<meta property="og:url" content="http://wangrunxin-yu7.github.io/2020/07/22/%E8%A1%A8%E7%8E%B0%E5%92%8C%E9%80%BB%E8%BE%91%E5%88%86%E7%A6%BB%EF%BC%8CECS%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%A1%8C%E4%B8%BA%E6%A0%91/index.html">
 <meta property="og:site_name" content="羽七の茶屋">
 <meta property="og:description" content="今天上课讲的两大块内容，分别是表现和逻辑分离，ECS，以及行为树。感觉是值得思考但又较难理解的东西，暂时先将其记下来。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-22T15:18:04.000Z">
-<meta property="article:modified_time" content="2020-07-23T00:42:46.323Z">
+<meta property="article:modified_time" content="2020-07-24T07:18:42.364Z">
 <meta property="article:author" content="羽七">
 <meta property="article:tag" content="日常">
 <meta property="article:tag" content="学习笔记">
@@ -185,7 +185,7 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-表现和逻辑分离，以及ECS" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-表现和逻辑分离，ECS，以及行为树" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -199,7 +199,7 @@
 
   
   
-<a href="/2020/07/22/%E8%A1%A8%E7%8E%B0%E5%92%8C%E9%80%BB%E8%BE%91%E5%88%86%E7%A6%BB%EF%BC%8C%E4%BB%A5%E5%8F%8AECS/" class="archive-article-date">
+<a href="/2020/07/22/%E8%A1%A8%E7%8E%B0%E5%92%8C%E9%80%BB%E8%BE%91%E5%88%86%E7%A6%BB%EF%BC%8CECS%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%A1%8C%E4%B8%BA%E6%A0%91/" class="archive-article-date">
         <time datetime="2020-07-22T15:18:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
 </a>
 
@@ -213,7 +213,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">873字</span>
+      <span class="post-count">406字</span>
     </span>
   </span>
 
@@ -222,7 +222,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -247,16 +247,6 @@
 <li><p>S，即System，指系统，只修改数据结构。</p>
 </li>
 </ul>
-<p>这个思想其实挺有趣的，但我目前也是一知半解，这里写一下我的理解：</p>
-<p>​    区别于面向对象的设计方式。以植物大战僵尸为例，面向对象的设计中可能会定义一个僵尸类、一个植物类等作为基类，基类中分别有各自的HP、移动速度等等，然后到具体的子类或接口实现不同僵尸和植物的功能。而ECS中，可能有一个用于存储Hp、移动速度、皮肤等数据的Character实体；然后有一个开放的GetHurt控件向外提供接口，用于修改Character里的数据；最后有个叫Hurt的系统，用于调用别人的GutHurt控件，修改别人的数据。</p>
-<p>​    那么如何区别各个僵尸或植物呢，其实就是每个植物或僵尸的实体不同或实体数据不同、所拥有的空间、所拥有的系统不同、所拥有的行为树不同。例如豌豆射手，它可能拥有Character实体，里面包括豌豆射手的模型、豌豆子弹的模型、100的HP数量等数据；还拥有GetHurt控件，和自己独特的行为树。而豌豆子弹，可能拥有Bullet实体，里面包含了子弹的模型和飞行速度却没有Hp；有飞行控件、Hurt系统以及自己的行为树。而向日葵一样拥有Character实体、GetHurt控件、产生阳光的系统以及自己的行为树。</p>
-<p>仔细想想，这样的设计方式确实很新颖，也有其独道的优越性。</p>
-<p>下面给自己定个代码命名规则（可能会因为生活经验再次修改）：</p>
-<ul>
-<li>实体脚本以名词命名</li>
-<li>控件脚本尽量以被动语态命名</li>
-<li>系统脚本以动词命名</li>
-</ul>
 <h1 id="行为树"><a href="#行为树" class="headerlink" title="行为树"></a>行为树</h1><p>说白了就是每个实例的行为流程图。根据流程图的设计，可以确定所需要调用的实体、控件、系统，并表现到代码当中。</p>
 
     
@@ -272,7 +262,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://wangrunxin-yu7.github.io/2020/07/22/表现和逻辑分离，以及ECS/" title="表现和逻辑分离，ECS，以及行为树" target="_blank">http://wangrunxin-yu7.github.io/2020/07/22/表现和逻辑分离，以及ECS/</a>
+          <a href="http://wangrunxin-yu7.github.io/2020/07/22/表现和逻辑分离，ECS，以及行为树/" title="表现和逻辑分离，ECS，以及行为树" target="_blank">http://wangrunxin-yu7.github.io/2020/07/22/表现和逻辑分离，ECS，以及行为树/</a>
         </li>
         
         <li>
