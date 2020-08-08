@@ -18,7 +18,7 @@
 <meta property="og:description" content="今天上课讲的两大块内容，分别是表现和逻辑分离，ECS，以及行为树。感觉是值得思考但又较难理解的东西，暂时先将其记下来。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-22T15:18:04.000Z">
-<meta property="article:modified_time" content="2020-08-06T05:33:35.955Z">
+<meta property="article:modified_time" content="2020-08-08T06:29:27.898Z">
 <meta property="article:author" content="羽七">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -246,11 +246,11 @@
 <p>ECS应该是游戏开发，尤其是Unity游戏开发中的常用设计模式。</p>
 <h2 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h2><p>Entity用于代表每个实体，与所代表的实体一一对应。它可以是一组编号，也可以是一串字符。像极了我们每个人的名字（如果不重名的话），一个名字代表了一个人，但是这个人却不由这个名字定义。也类似数据库中常用的ID字段，一个ID代表了一条记录，但是这条记录的内容却和其ID无关。</p>
 <h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p>Component应该算是ECS的核心了，我认为这东西其实和面向对象中的接口很像，但又不太一样。ECS中认为，每个实例是由挂载在其身上的不同Component决定的。这里把人类和蜘蛛看作实例作为例子，与面向对象的设计模式做对比。在面向对象的设计模式中，可能存在着这样的一种继承树：</p>
-<p>生命体    |</p>
-<p>​                |</p>
-<p>​                |==》节肢动物|==》蜘蛛|</p>
-<p>​                |</p>
-<p>​                |==》灵长目哺乳动物|==》人类|</p>
+<p>生命体</p>
+<p>|</p>
+<p>|==》节肢动物==》蜘蛛</p>
+<p>|</p>
+<p>|==》灵长目哺乳动物==》人类</p>
 <p>可以看到在面向对象的设计模式中，每个实例是通过继承的方式逐渐细化其特点来进行区别的。蜘蛛和人类同样继承自生命体，却继承自不同的动物类，这就将蜘蛛和人类区别开了。所以大体可以这么认为，在面向对象的设计模式中，每个实例的区别是与其继承息息相关。</p>
 <p>而在ECS中，蜘蛛和人类的区别是由Component决定的。例如蜘蛛和人类可能共同拥有的Component有嘴巴、足、眼睛，里面分别包含有嘴巴数量、足数量、眼睛数量的属性，嘴巴的数量都相同这就不必说了，但是足和眼睛的数量却不同，这就是区别之一。另外，蜘蛛有着吐丝的Component，人类却没有；人类有着说话的Component，蜘蛛却没有，这就是区别之二。像这样通过挂载在蜘蛛和人类身上的Component不同，就逐渐区别开了蜘蛛和人类。</p>
 <p>现在回答开篇的问题：</p>
@@ -471,6 +471,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动漫</a>
               </li>
              
@@ -480,10 +484,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">FF14</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
