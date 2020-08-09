@@ -93,6 +93,8 @@
 				
 			
 				
+					<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
+				
 			
 				
 			
@@ -417,6 +419,8 @@
       
     
       
+      
+      
     
       
     
@@ -426,9 +430,11 @@
     
     
       
-      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">茶屋の文</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">茶屋の文</a></li>
       
         
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
       
@@ -451,10 +457,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动漫</a>
               </li>
              
@@ -467,11 +469,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
             
             <div class="clearfix"></div>
@@ -517,6 +519,23 @@
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://blog.ch34k.xyz" target="_blank" class="search-title" >
+                
+                  <i class="icon-link icon"></i>
+                
+                水厂博客
+              </a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     
