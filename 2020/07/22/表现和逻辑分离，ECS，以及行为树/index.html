@@ -18,7 +18,7 @@
 <meta property="og:description" content="今天上课讲的两大块内容，分别是表现和逻辑分离，ECS，以及行为树。感觉是值得思考但又较难理解的东西，暂时先将其记下来。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-22T15:18:04.000Z">
-<meta property="article:modified_time" content="2020-08-09T00:16:33.968Z">
+<meta property="article:modified_time" content="2020-09-02T09:24:44.627Z">
 <meta property="article:author" content="羽七">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -272,9 +272,7 @@
 <li>为啥说Component和接口很像呢？<strong>因为它和接口一样都定义了具有通用性的一个功能或者一组数据。</strong></li>
 <li>那为啥说Component和接口又不太一样呢？<strong>因为接口的功能的具体定义会由类决定，例如行走这个功能，节肢动物和灵长目哺乳动物脚的数量都不同，行走的方式自然也就不一样了。而Component却似乎不是这样的，行走的功能是写死的，无论是蜘蛛还是人类调用的都是同样的函数接口，但Component能够根据具体情况采取不同的行走方式。所谓具体情况，一般也同样是由于实例身上的Component不同所导致。</strong></li>
 </ol>
-<h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2><p>System具体是啥，其实我也不是很了解，姑且我在使用Unity的时候并不会涉及到对System的理解，所以也没有特别的在意了。</p>
-<p>目前我的理解是System可能就是Unity本身，或者是运行游戏的操作系统？</p>
-<p>应该是到了引擎开发层面才会用到的知识。</p>
+<h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2><p>System具体是啥，其实我也不是很了解。现在感觉像是类似制作敌人生成器这类能够生成实例的物件时才会使用的知识。System会依据预制件创建实例，调用Component所提供的接口进行赋值。完成以后，该实例就能够单独执行自己的行为树了。</p>
 <h1 id="行为树"><a href="#行为树" class="headerlink" title="行为树"></a>行为树</h1><p>说白了就是每个实例的行为流程图。例如小红和小丽，可能拥有着完全一样的Component，但是她们的行为模式却可以不相同。小红可能习惯早上去跑步，小丽可能习惯晚上去跑步等等。</p>
 <p>很多时候，行为树的设计还是很有必要的，不仅能让你确定流程的漏洞，有的时候还能让你知道你需要哪些Component，这些Component应该如何设计等等。</p>
 
@@ -497,11 +495,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">FF14</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,7 +503,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">FF14</a>
               </li>
             
             <div class="clearfix"></div>
